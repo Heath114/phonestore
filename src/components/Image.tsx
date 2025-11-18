@@ -46,7 +46,7 @@ export default function Photo() {
             <div className="flex flex-col gap-6 md:gap-8 lg:gap-10 px-4 py-12 md:py-16 lg:py-20 2xl:hidden">
                 <div className="photo-block w-full h-[40vh] md:h-[45vh] lg:h-[50vh] relative">
                     <Image 
-                        src="/slider/ht.webp" 
+                        src="/images/products/phone/6.webp" 
                         alt="Photo" 
                         fill 
                         className="object-cover"
@@ -56,7 +56,7 @@ export default function Photo() {
 
                 <div className="photo-block w-full h-[40vh] md:h-[45vh] lg:h-[50vh] relative">
                     <Image 
-                        src="/slider/ht.webp" 
+                        src="/images/products/phone/7.avif" 
                         alt="Photo" 
                         fill 
                         className="object-cover"
@@ -66,7 +66,7 @@ export default function Photo() {
                 
                 <div className="photo-block w-full h-[40vh] md:h-[45vh] lg:h-[50vh] relative">
                     <Image 
-                        src="/slider/ht.webp" 
+                        src="/images/products/phone/8.avif" 
                         alt="Photo" 
                         fill 
                         className="object-cover"

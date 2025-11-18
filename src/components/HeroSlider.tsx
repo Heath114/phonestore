@@ -22,23 +22,23 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: 1,
-    title: 'Crystal Clear Display',
+    title: 'Latest Smartphones',
     subtitle:
-      'Experience stunning visuals with our premium monitors, delivering exceptional color accuracy and immersive viewing.',
+      'Discover the newest Samsung and Xiaomi phones with cutting-edge technology, stunning cameras, and powerful performance.',
     ctaText: 'Shop now',
-    ctaHref: '/products/monitors',
-    imageUrl: '/slider/4.webp',
-    alt: 'High-resolution professional monitor',
+    ctaHref: '/products/smartphones',
+    imageUrl: '/images/products/phone/9.jpg',
+    alt: 'Latest smartphones collection',
   },
   {
     id: 2,
-    title: 'Work. Create. Repeat.',
+    title: 'Premium Mobile Experience',
     subtitle:
-      'Power your day with reliable capacity and premium build quality.',
+      'Elevate your everyday with flagship features, lightning-fast charging, and immersive displays.',
     ctaText: 'Explore',
     ctaHref: '/collections/new',
-    imageUrl: '/slider/5.webp',
-    alt: 'Lifestyle tech setup',
+    imageUrl: '/images/products/phone/11.jpg',
+    alt: 'Premium smartphones showcase',
   },
 ];
 
