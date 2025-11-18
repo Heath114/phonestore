@@ -67,14 +67,15 @@ export async function generateStaticParams() {
   return businessConfig.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = getLocaleFromParams(params);
+  const { locale: localeParam } = await params;
+  const locale = getLocaleFromParams({ locale: localeParam });
   const { htmlLang, dir } = getLocaleMetadata(locale);
   const HeaderComponent = Header as any;
   const FooterComponent = Footer as any;
