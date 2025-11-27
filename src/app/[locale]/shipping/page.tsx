@@ -12,78 +12,121 @@ export default async function ShippingPolicyPage({
   const t = getTranslations(currentLocale, 'legal');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-24 md:py-32 lg:py-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-24 md:mb-32">
           <Link
             href={`/${currentLocale}`}
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="group inline-flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-gray-900 mb-12 transition-colors duration-500 uppercase tracking-widest"
           >
-            ← {currentLocale === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
+            <span className="transform group-hover:-translate-x-1 transition-transform duration-500">←</span>
+            {currentLocale === 'ar' ? 'العودة' : 'Back'}
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-[1.1]">
             {t.shipping.title}
           </h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="w-16 h-px bg-gray-900 mb-6"></div>
+          <p className="text-xs text-gray-400 tracking-wider uppercase">
             {t.shipping.last_updated}
           </p>
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <p className="text-gray-700 dark:text-gray-300 mb-8">
-            {t.shipping.intro}
-          </p>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.shipping.processing.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.shipping.processing.content}
+        <div className="space-y-20 md:space-y-24">
+          <section className="max-w-3xl">
+            <p className="text-base md:text-lg text-gray-700 leading-loose font-light">
+              {t.shipping.intro}
             </p>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.shipping.rates.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              {t.shipping.rates.content}
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-              <li>{t.shipping.rates.standard}</li>
-              <li>{t.shipping.rates.express}</li>
-              <li>{t.shipping.rates.overnight}</li>
-            </ul>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.shipping.processing.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.shipping.processing.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.shipping.tracking.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.shipping.tracking.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.shipping.rates.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light mb-6">
+                  {t.shipping.rates.content}
+                </p>
+                <ul className="space-y-3 text-sm md:text-base text-gray-600 font-light">
+                  <li className="flex items-start">
+                    <span className="text-gray-400 mr-3">•</span>
+                    <span>{t.shipping.rates.standard}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-gray-400 mr-3">•</span>
+                    <span>{t.shipping.rates.express}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-gray-400 mr-3">•</span>
+                    <span>{t.shipping.rates.overnight}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.shipping.international.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.shipping.international.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.shipping.tracking.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.shipping.tracking.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.shipping.damages.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.shipping.damages.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.shipping.international.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.shipping.international.content}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.shipping.damages.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.shipping.damages.content}
+                </p>
+              </div>
+            </div>
           </section>
         </div>
       </div>

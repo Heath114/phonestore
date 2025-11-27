@@ -12,30 +12,32 @@ export default async function StoreLocationPage({
   const t = getTranslations(currentLocale, 'legal');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 md:py-32 lg:py-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-24 md:mb-32">
           <Link
             href={`/${currentLocale}`}
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="group inline-flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-gray-900 mb-12 transition-colors duration-500 uppercase tracking-widest"
           >
-            ← {currentLocale === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
+            <span className="transform group-hover:-translate-x-1 transition-transform duration-500">←</span>
+            {currentLocale === 'ar' ? 'العودة' : 'Back'}
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-[1.1]">
             {t.location.title}
           </h1>
-          <p className="text-gray-700 dark:text-gray-300">
+          <div className="w-16 h-px bg-gray-900 mb-6"></div>
+          <p className="text-base md:text-lg text-gray-700 leading-loose font-light max-w-3xl">
             {t.location.intro}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Map Placeholder */}
-          <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-96 flex items-center justify-center">
+          <div className="bg-white border border-gray-200 h-[500px] flex items-center justify-center group">
             <div className="text-center">
               <svg
-                className="mx-auto h-16 w-16 text-gray-400"
+                className="mx-auto h-16 w-16 text-gray-300 group-hover:text-gray-400 transition-colors duration-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -43,24 +45,24 @@ export default async function StoreLocationPage({
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                 />
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <p className="mt-2 text-gray-600 dark:text-gray-400">
+              <p className="mt-4 text-sm text-gray-400 uppercase tracking-widest">
                 {t.location.directions}
               </p>
               <a
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+                className="mt-6 inline-block bg-gray-900 text-white px-8 py-3 text-sm hover:bg-gray-800 transition-colors duration-300 uppercase tracking-wider"
               >
                 {t.location.directions}
               </a>
@@ -68,13 +70,13 @@ export default async function StoreLocationPage({
           </div>
 
           {/* Store Information */}
-          <div className="space-y-6">
+          <div className="space-y-12">
             {/* Address */}
-            <section className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <section className="border-b border-gray-200 pb-8">
+              <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-6">
                 {t.location.address.title}
               </h2>
-              <div className="text-gray-700 dark:text-gray-300 space-y-1">
+              <div className="text-sm md:text-base text-gray-600 leading-loose font-light space-y-1">
                 <p>{t.location.address.street}</p>
                 <p>{t.location.address.city}</p>
                 <p>{t.location.address.country}</p>
@@ -83,11 +85,11 @@ export default async function StoreLocationPage({
             </section>
 
             {/* Hours */}
-            <section className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <section className="border-b border-gray-200 pb-8">
+              <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-6">
                 {t.location.hours.title}
               </h2>
-              <div className="text-gray-700 dark:text-gray-300 space-y-2">
+              <div className="text-sm md:text-base text-gray-600 leading-loose font-light space-y-2">
                 <p>{t.location.hours.weekdays}</p>
                 <p>{t.location.hours.saturday}</p>
                 <p>{t.location.hours.sunday}</p>
@@ -95,11 +97,11 @@ export default async function StoreLocationPage({
             </section>
 
             {/* Contact */}
-            <section className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            <section className="border-b border-gray-200 pb-8">
+              <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-6">
                 {t.location.contact.title}
               </h2>
-              <div className="text-gray-700 dark:text-gray-300 space-y-2">
+              <div className="text-sm md:text-base text-gray-600 leading-loose font-light space-y-2">
                 <p>{t.location.contact.phone}</p>
                 <p>{t.location.contact.email}</p>
                 <p>{t.location.contact.whatsapp}</p>
@@ -109,21 +111,21 @@ export default async function StoreLocationPage({
         </div>
 
         {/* Additional Info */}
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
-          <section className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 mt-24">
+          <section className="bg-white border border-gray-200 p-8">
+            <h3 className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">
               {t.location.parking.title}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
               {t.location.parking.content}
             </p>
           </section>
 
-          <section className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+          <section className="bg-white border border-gray-200 p-8">
+            <h3 className="text-sm uppercase tracking-widest text-gray-400 font-medium mb-4">
               {t.location.public_transport.title}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
               {t.location.public_transport.content}
             </p>
           </section>

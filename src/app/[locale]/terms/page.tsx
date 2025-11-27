@@ -12,91 +12,137 @@ export default async function TermsOfServicePage({
   const t = getTranslations(currentLocale, 'legal');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-24 md:py-32 lg:py-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-24 md:mb-32">
           <Link
             href={`/${currentLocale}`}
-            className="text-blue-600 hover:text-blue-800 mb-4 inline-block"
+            className="group inline-flex items-center gap-2 text-xs md:text-sm text-gray-400 hover:text-gray-900 mb-12 transition-colors duration-500 uppercase tracking-widest"
           >
-            ← {currentLocale === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
+            <span className="transform group-hover:-translate-x-1 transition-transform duration-500">←</span>
+            {currentLocale === 'ar' ? 'العودة' : 'Back'}
           </Link>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 tracking-tight leading-[1.1]">
             {t.terms.title}
           </h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="w-16 h-px bg-gray-900 mb-6"></div>
+          <p className="text-xs text-gray-400 tracking-wider uppercase">
             {t.terms.last_updated}
           </p>
         </div>
 
         {/* Content */}
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <p className="text-gray-700 dark:text-gray-300 mb-8">
-            {t.terms.intro}
-          </p>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.acceptance.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.acceptance.content}
+        <div className="space-y-20 md:space-y-24">
+          <section className="max-w-3xl">
+            <p className="text-base md:text-lg text-gray-700 leading-loose font-light">
+              {t.terms.intro}
             </p>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.use_license.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.use_license.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.acceptance.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.acceptance.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.disclaimer.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.disclaimer.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.use_license.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.use_license.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.limitations.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.limitations.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.disclaimer.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.disclaimer.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.privacy.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.privacy.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.limitations.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.limitations.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.changes.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.changes.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.privacy.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.privacy.content}
+                </p>
+              </div>
+            </div>
           </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              {t.terms.contact.title}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t.terms.contact.content}
-            </p>
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.changes.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.changes.content}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="border-t border-gray-200 pt-12">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+              <div className="md:col-span-1">
+                <h2 className="text-sm uppercase tracking-widest text-gray-400 font-medium sticky top-24">
+                  {t.terms.contact.title}
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-sm md:text-base text-gray-600 leading-loose font-light">
+                  {t.terms.contact.content}
+                </p>
+              </div>
+            </div>
           </section>
         </div>
       </div>

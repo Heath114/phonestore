@@ -30,15 +30,17 @@ export default function ProductsSection() {
     // Add more categories as needed
     const categoryMap = {
         'All': t.products.all_products,
-        'Monitors': 'Monitors',
-
+        // 'Monitors': 'Monitors',
+        'Xiaomi': 'Xiaomi',
+        'Samsung': 'Samsung',
+        'Apple': 'Apple',
         // 'Phones': 'Phones',
         // 'Tablets': 'Tablets',
         // 'iPads': 'iPads',
-        'Laptops': 'Laptops',
+        // 'Laptops': 'Laptops',
         // 'Computers': 'Computers',
         // 'Wearables': 'Wearables',
-        'Accessories': 'Accessories'
+        // 'Accessories': 'Accessories'
     }
     
     const filteredProjects = filter === 'All'

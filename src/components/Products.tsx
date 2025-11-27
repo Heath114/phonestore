@@ -114,12 +114,12 @@ export default function ProductsSection() {
                                         <div className="mt-2">
                                             {product.isSale ? (
                                                 <>
-                                                    <span className="text-xs md:text-sm lg:text-sm text-gray-300 line-through">{`$${(product.originalPrice).toFixed(2)}`}</span>
-                                                    <span className="text-xs md:text-sm lg:text-sm text-black text-gray-700 ml-2">{`${t.products.from} $${getProductPrice(product).toFixed(2)}`}</span>
+                                                    <span className="text-xs md:text-sm lg:text-sm text-gray-300 line-through">{`${(product.originalPrice).toFixed(2)}`}</span>
+                                                    <span className="text-xs md:text-sm lg:text-sm text-black text-gray-700 ml-2">{`${t.products.from} ${getProductPrice(product).toFixed(2)} JOD`}</span>
                                                 </>
                                             ) :
                                             (
-                                                <span className="text-xs md:text-sm lg:text-sm text-gray-700">{`${t.products.from} $${getProductPrice(product).toFixed(2)}`}</span>
+                                                <span className="text-xs md:text-sm lg:text-sm text-gray-700">{`${t.products.from} ${getProductPrice(product).toFixed(2)} JOD`}</span>
                                             )}
                                         </div>
                                     </div>

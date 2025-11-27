@@ -40,49 +40,50 @@ export function getProductPrice(product: Product): number {
 export const ProductList: Product[] = [
     {
         id: 1,
-        name: "Samsung Galaxy S24 Ultra",
-        description: "Samsung's flagship smartphone with powerful AI features, stunning 200MP camera, and S Pen built-in.",
-        image: "/images/products/phone/1.webp",
-        hoverImage: "/images/products/phone/1.webp",
-        brand: "Samsung",
-        category: "Smartphones",
-        colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow"],
+        name: "iPhone 17 Pro Max",
+        description: "Apple's flagship smartphone with powerful AI features, stunning 200MP camera, and S Pen built-in.",
+        image: "/images/products/phone/17.png",
+        hoverImage: "/images/products/phone/17.png",
+        brand: "Apple",
+        category: "Apple", //Smartphones
+        colors: ["Gold", "Graphite", "Silver", "Sierra Blue"],
         features: [
-            "Snapdragon 8 Gen 3 for Galaxy",
-            "6.8-inch Dynamic AMOLED 2X display",
-            "200MP main camera with AI zoom",
-            "12GB RAM with 256GB storage",
-            "5000mAh battery with 45W fast charging",
-            "Built-in S Pen",
-            "IP68 water and dust resistance",
-            "Galaxy AI features"
+            "A17 Pro chip with 6-core CPU and 6-core GPU",
+            "6.7-inch Super Retina XDR display with ProMotion",
+            "200MP main camera with advanced computational photography",
+            "Apple Pencil (2nd generation) support",
+            "5G connectivity",
+            "iOS 17 with new AI-powered features",
+            "E-SIM support",
+            "Ceramic Shield front cover"
+
         ],
         specifications: {
-            Processor: "Snapdragon 8 Gen 3 for Galaxy",
-            Display: "6.8-inch Dynamic AMOLED 2X, 120Hz",
-            Resolution: "3088 x 1440 pixels (QHD+)",
-            RAM: "12GB",
+            Processor: "A17 Pro chip",
+            Display: "6.7-inch Super Retina XDR with ProMotion",
+            Resolution: "2796 x 1290 pixels",
+            RAM: "8GB",
             Storage: "256GB",
-            "Main Camera": "200MP f/1.7 OIS",
-            "Ultra Wide": "12MP f/2.2",
-            "Telephoto": "50MP 5x + 10MP 3x optical zoom",
-            "Front Camera": "12MP f/2.2",
-            Battery: "5000mAh",
-            Weight: "232g",
-            Dimensions: "162.3 x 79 x 8.6 mm"
+            "Main Camera": "200MP f/1.6",
+            "Ultra Wide": "12MP f/2.4",
+            "Telephoto": "12MP f/2.8 5x optical zoom",
+            "Front Camera": "12MP f/1.9",
+            Battery: "4323mAh",
+            Weight: "221g",
+            Dimensions: "160.7 x 77.6 x 7.85 mm"
         },
         warranty: "1 Year Manufacturer Warranty",
         whatsInTheBox: [
-            "Samsung Galaxy S24 Ultra",
-            "USB-C Cable",
+            "iPhone 17 Pro Max",
+            "USB-C to Lightning Cable",
             "SIM Ejector Tool",
-            "Quick Start Guide"
+            "Documentation"
         ],
         images: ["/images/products/phone/4.webp", "/images/products/phone/5.webp"],
         slug: "samsung-galaxy-s24-ultra",
         isSale: true,
         originalPrice: 1299.99,
-        discount: 10,
+        discount: 15,
     },
     {
         id: 2,
@@ -91,7 +92,7 @@ export const ProductList: Product[] = [
         image: "/images/products/phone/2.webp",
         hoverImage: "/images/products/phone/2.webp",
         brand: "Xiaomi",
-        category: "Smartphones",
+        category: "Xiaomi", //Smartphones
         colors: ["Black", "White", "Titanium"],
         features: [
             "Snapdragon 8 Gen 3 processor",
@@ -140,7 +141,7 @@ export const ProductList: Product[] = [
         image: "/images/products/phone/3.png",
         hoverImage: "/images/products/phone/3.png",
         brand: "Samsung",
-        category: "Monitors",
+        category: "Samsung", //Smartphones
         colors: ["Awesome Graphite", "Awesome Violet", "Awesome Lime", "Awesome White"],
         features: [
             "Exynos 1380 processor",
@@ -184,7 +185,7 @@ export const ProductList: Product[] = [
         image: "/images/products/phone/5.webp",
         hoverImage: "/images/products/phone/5.webp",
         brand: "Xiaomi",
-        category: "Laptops",
+        category: "Xiaomi", //Smartphones
         colors: ["Midnight Black", "Ocean Blue", "Stardust White"],
         features: [
             "Snapdragon 7s Gen 2 processor",
@@ -230,7 +231,7 @@ export const ProductList: Product[] = [
         image: "/images/products/phone/4.webp",
         hoverImage: "/images/products/phone/4.webp",
         brand: "Samsung",
-        category: "Monitors",   
+        category: "Samsung",    //Smartphones
         colors: ["Phantom Black", "Cream", "Icy Blue"],
         features: [
             "Snapdragon 8 Gen 2 for Galaxy",
@@ -267,6 +268,51 @@ export const ProductList: Product[] = [
         price: 1799.99,
         images: ["/images/products/phone/4.webp", "/images/products/phone/5.webp"],
         slug: "samsung-galaxy-z-fold-5"
+    },
+    {
+        id: 6,
+        name: "iPhone 16 Pro Max",
+        description: "Apple's most advanced iPhone with A18 Pro chip, titanium design, and revolutionary camera system with 5x telephoto zoom.",
+        image: "/images/products/phone/iphone16.png",
+        hoverImage: "/images/products/phone/iphone16.png",
+        brand: "Apple",
+        category: "Apple",
+        colors: ["Natural Titanium", "Blue Titanium", "White Titanium", "Black Titanium"],
+        features: [
+            "A18 Pro chip with next-generation Neural Engine",
+            "6.9-inch Super Retina XDR display with ProMotion",
+            "48MP Fusion camera with second-generation quad-pixel sensor",
+            "5x Telephoto camera for stunning zoom shots",
+            "Action button for quick access to features",
+            "Titanium design with textured matte glass back",
+            "USB-C with USB 3 speeds up to 10Gb/s",
+            "Emergency SOS via satellite"
+        ],
+        specifications: {
+            Processor: "A18 Pro chip",
+            Display: "6.9-inch Super Retina XDR with ProMotion",
+            Resolution: "2868 x 1320 pixels",
+            RAM: "8GB",
+            Storage: "256GB",
+            "Main Camera": "48MP f/1.78 Fusion",
+            "Ultra Wide": "48MP f/2.2",
+            "Telephoto": "12MP f/2.8 5x optical zoom",
+            "Front Camera": "12MP f/1.9 TrueDepth",
+            Battery: "4685mAh",
+            Weight: "227g",
+            Dimensions: "163.0 x 77.6 x 8.25 mm"
+        },
+        warranty: "1 Year Apple Limited Warranty",
+        whatsInTheBox: [
+            "iPhone 16 Pro Max",
+            "USB-C Charge Cable (1m)",
+            "Documentation"
+        ],
+        isSale: true,
+        originalPrice: 1499.99,
+        discount: 10,
+        images: ["/images/products/phone/iphone16.png"],
+        slug: "iphone-16-pro-max"
     },
     
 ];

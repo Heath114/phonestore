@@ -51,6 +51,10 @@ export default function Photo() {
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" //would adding this make any difference whatsoever?
+                        //  yes it would, it helps with performance by serving appropriately sized images based on viewport size, but you may ask, isn't next/image already doing that?
+                        // the answer is yes, but adding sizes gives it a better hint on what sizes to serve, especially in complex layouts. so, its a good practice to include it.
+                        //  but it is not strictly necessary for next/image to function correctly, and doesn't change the visual outcome in most cases. 
                     />
                 </div>
 
@@ -61,6 +65,7 @@ export default function Photo() {
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
                 
@@ -71,6 +76,7 @@ export default function Photo() {
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
             </div>
@@ -79,21 +85,23 @@ export default function Photo() {
             <div className="hidden 2xl:flex 2xl:mb-40">
                 <div className="photo-block w-[25%] h-[65vh] my-20 relative ml-56">
                     <Image 
-                        src="/slider/ht.webp" 
+                        src="/images/products/phone/7.avif" 
                         alt="Photo" 
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
 
                 <div className="photo-block w-[18%] h-[50vh] mt-80 relative ml-52">
                     <Image 
-                        src="/slider/ht.webp" 
+                        src="/images/products/phone/8.avif" 
                         alt="Photo" 
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
                 
@@ -104,6 +112,7 @@ export default function Photo() {
                         fill 
                         className="object-cover"
                         priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
             </div>

@@ -13,75 +13,103 @@ import { Locale } from '@/locales/business-config';
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
   const params = useParams();
   const locale = (params.locale as Locale) || 'en';
   const t = getTranslations(locale, 'common');
 
+  React.useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 10) {
+        // Always show header at the top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', controlHeader);
+    return () => window.removeEventListener('scroll', controlHeader);
+  }, [lastScrollY]);
+
   return (
-    // The header is fixed to the top of the viewport.
-    <header className="bg-white fixed inset-x-0 py-4 md:py-1 lg:py-0.5 2xl:py-0 px-4 md:px-8 lg:px-12 2xl:px-16 w-full z-50 top-0">
+    <>
+      {/* The header is fixed to the top of the viewport. */}
+      <header className={`bg-white fixed inset-x-0 py-4 md:py-1 lg:py-0.5 2xl:py-0 px-4 md:px-8 lg:px-12 2xl:px-16 w-full z-50 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}>
 
-      {/* Mobile Layout */}
-      <div className="md:hidden flex items-center justify-between">
-        {/* Left: Menu & Search */}
-        <div className="flex items-center gap-2">
-          <MenuButton onClick={() => setIsMenuOpen(true)} />
-          <SearchIconButton onClick={() => setIsSearchOpen(true)} />
+        {/* Mobile Layout */}
+        <div className="md:hidden flex items-center justify-between">
+          {/* Left: Menu & Search */}
+          <div className="flex items-center gap-2">
+            <MenuButton onClick={() => setIsMenuOpen(true)} />
+            <SearchIconButton onClick={() => setIsSearchOpen(true)} />
+          </div>
+          {/* Center: Logo */}
+          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center h-10">
+            <Image 
+              src="/images/logos/phonestore.png" 
+              alt="TechShop Logo" 
+              width={120} 
+              height={40}
+              priority
+              className="h-16 w-auto object-contain"
+            />
+          </Link>
+          {/* Right: Language & Call */}
+          <div className="flex items-center  gap-2">
+            <LanguageButton />
+            <CallUsButton />
+          </div>
         </div>
-        {/* Center: Logo */}
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center h-10">
-          <Image 
-            src="/images/logos/6.png" 
-            alt="TechShop Logo" 
-            width={120} 
-            height={40}
-            priority
-            className="h-16 w-auto object-contain"
-          />
-        </Link>
-        {/* Right: Language & Call */}
-        <div className="flex items-center  gap-2">
-          <LanguageButton />
-          <CallUsButton />
-        </div>
-      </div>
 
-      {/* Desktop Layout */}
-      <div className="hidden md:grid grid-cols-3 items-center gap-4">
-        {/* Left: Search Bar */}
-        <div className="flex justify-start">
-          <div className="max-w-xl w-full">
-            <SearchBar />
+        {/* Desktop Layout */}
+        <div className="hidden md:grid grid-cols-3 items-center gap-4">
+          {/* Left: Search Bar */}
+          <div className="flex justify-start">
+            <div className="max-w-xl w-full">
+              <SearchBar />
+            </div>
+          </div>
+          
+          {/* Center: Logo */}
+          <div className="flex justify-center">
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/images/logos/phonestore.png" 
+                alt="TechShop Logo" 
+                width={140} 
+                height={47} 
+                priority
+                className="h-10 lg:h-12 w-auto object-contain"
+              />
+            </Link>
+          </div>
+
+          {/* Right: Call Button */}
+          <div className="flex items-center justify-end gap-3">
+            <LanguageButton />
+            <CallUsButton />
           </div>
         </div>
         
-        {/* Center: Logo */}
-        <div className="flex justify-center">
-          <Link href="/" className="flex items-center h-12">
-            <Image 
-              src="/images/logos/6.png" 
-              alt="TechShop Logo" 
-              width={140} 
-              height={47} 
-              priority
-              className="h-14 w-auto object-contain"
-            />
-          </Link>
-        </div>
-
-        {/* Right: Call Button */}
-        <div className="flex items-center justify-end gap-3">
-          <LanguageButton />
-          <CallUsButton />
-        </div>
-      </div>
+        {/* Search Modal */}
+        <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      </header>
       
-      {/* Search Modal */}
-      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-      
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Rendered outside header to avoid transform context issues */}
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-    </header>
+    </>
   );
 }
 
@@ -348,10 +376,10 @@ function CallUsButton() {
     <Link
       href="#contact"
       aria-label={t.contact.call_us}
-      className="flex-shrink-0 inline-flex items-center justify-center gap-2 w-10 h-10 md:w-auto md:px-6 bg-white text-gray-900 rounded-md transition-all duration-300 hover:bg-gray-50 hover:shadow-lg"
+      className="flex-shrink-0 inline-flex items-center justify-center gap-2 w-10 h-10 md:w-auto md:px-4 bg-white text-gray-900 rounded-md transition-all duration-300 hover:bg-gray-50 hover:shadow-lg"
     >
-      <Phone size={24} />
-      <span className="hidden lg:inline font-medium">{t.header.contact_us}</span>
+      <Phone size={20} />
+      <span className="hidden lg:inline font-medium text-sm">{t.header.contact_us}</span>
     </Link>
   );
 }
@@ -409,14 +437,14 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
 
   return (
     <div 
-      className={`fixed inset-0 z-[60] bg-black transition-all duration-700 ease-in-out ${
+      className={`fixed inset-0 z-[9999] bg-black transition-all duration-700 ease-in-out ${
         isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
     >
       {/* Close button */}
       <button
         onClick={onClose}
-        className={`fixed top-6 right-6 z-10 p-3 text-white/60 hover:text-white transition-all duration-500 ${
+        className={`fixed top-6 right-6 z-[10000] p-3 text-white/60 hover:text-white transition-all duration-500 ${
           isOpen ? 'opacity-100 rotate-0' : 'opacity-0 rotate-90'
         }`}
         aria-label="Close menu"
